@@ -2,7 +2,7 @@
   "name": "gulp-tsd",
   "version": "0.0.1",
   "description": "Gulp plugin to automate TSD and TypeScript definition related tasks",
-  "main": "gulpfile.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,6 +10,11 @@
     "gulp",
     "tsd"
   ],
+  "dependencies": {
+    "tsd": "~0.5.7",
+    "through2": "~0.4.2",
+    "gulp-util": "~2.2.14"
+  },
   "author": "moznion",
   "license": "MIT"
 }
