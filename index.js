@@ -17,7 +17,7 @@ module.exports = function () {
     };
 
     var finished_workers = 0;
-    var promised = function (promise, callback) {
+    var promised = function (context, promise, callback) {
         promise.done(function () {
             if (settings.length === ++finished_workers) {
                 logger.log('finish');
@@ -25,11 +25,11 @@ module.exports = function () {
             }
         }, function (err) {
             if (settings.length === ++finished_workers) {
-                self.emit('error', new gutil.PluginError('gulp-tsd', 'Failed command execution: ' + err.stack));
+                context.emit('error', new gutil.PluginError('gulp-tsd', 'Failed command execution: ' + err.stack));
                 return callback();
             }
         });
-    }
+    };
 
     function transform(file, encode, callback) {
         if (file.isNull()) {
@@ -57,7 +57,7 @@ module.exports = function () {
                 return callback();
             }
 
-            return promised(tsd_command(setting), callback);
+            return promised(self, tsd_command(setting), callback);
         });
     }
 
