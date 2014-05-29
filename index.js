@@ -3,6 +3,7 @@
 var tsd     = require('./lib/tsd');
 var through = require('through2');
 var gutil   = require('gulp-util');
+var path    = require('path');
 
 module.exports = function () {
     var settings = [];
@@ -15,13 +16,18 @@ module.exports = function () {
         }
     };
 
-    var promised = function (context, promise, callback) {
+    var finished_workers = 0;
+    var promised = function (promise, callback) {
         promise.done(function () {
-            logger.log('finish');
-            return callback();
+            if (settings.length === ++finished_workers) {
+                logger.log('finish');
+                return callback();
+            }
         }, function (err) {
-            self.emit('error', new gutil.PluginError('gulp-tsd', 'Failed command execution: ' + err.stack));
-            return callback();
+            if (settings.length === ++finished_workers) {
+                self.emit('error', new gutil.PluginError('gulp-tsd', 'Failed command execution: ' + err.stack));
+                return callback();
+            }
         });
     }
 
@@ -36,8 +42,7 @@ module.exports = function () {
             return callback();
         }
 
-        var pathname = './' + file.relative.replace(/\\/g, '/');
-        settings.push(require(pathname));
+        settings.push(require(path.resolve(file.relative)));
 
         callback();
     }
@@ -52,7 +57,7 @@ module.exports = function () {
                 return callback();
             }
 
-            return promised(self, tsd_command(setting), callback);
+            return promised(tsd_command(setting), callback);
         });
     }
 
