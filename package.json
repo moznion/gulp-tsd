@@ -21,6 +21,9 @@
     "gulp-run-sequence": "~0.3.2",
     "chai": "~1.9.1"
   },
+  "optionalDependencies": {
+    "gulp-jshint": "~1.6.1"
+  },
   "author": "moznion",
   "repository": {
     "type": "git",
