@@ -22,5 +22,9 @@
     "chai": "~1.9.1"
   },
   "author": "moznion",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/moznion/gulp-tsd.git"
+  },
   "license": "MIT"
 }
