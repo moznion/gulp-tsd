@@ -7,8 +7,17 @@ var gutil   = require('gulp-util');
 module.exports = function () {
     var settings = [];
 
+    var logger = {
+        "log": function () {
+            var args = Array.prototype.slice.call(arguments);
+            args.unshift('['+gutil.colors.cyan('gulp-tsd')+']');
+            gutil.log.apply(undefined, args);
+        }
+    };
+
     var promised = function (context, promise, callback) {
         promise.done(function () {
+            logger.log('finish');
             return callback();
         }, function (err) {
             self.emit('error', new gutil.PluginError('gulp-tsd', 'Failed command execution: ' + err.stack));
@@ -37,7 +46,7 @@ module.exports = function () {
         var self = this;
         settings.forEach(function (setting) {
             var command = setting.command;
-            var tsd_command = tsd.getRunner(gutil).commands[command];
+            var tsd_command = tsd.getRunner(logger).commands[command];
             if (typeof tsd_command === 'undefined') {
                 self.emit('error', new gutil.PluginError('gulp-tsd', '"' + command + '"' + ' command is not supported'));
                 return callback();
