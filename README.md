@@ -1,4 +1,4 @@
-# gulp-tsd
+# gulp-tsd [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
 
 Gulp plugin to automate TSD and TypeScript definition related tasks
 

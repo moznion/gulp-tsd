@@ -1,5 +1,6 @@
 {
   "name": "gulp-tsd",
+  "author": "moznion <moznion@gmail.com>",
   "version": "0.0.1",
   "description": "Gulp plugin to automate TSD and TypeScript definition related tasks",
   "main": "index.js",
@@ -24,7 +25,8 @@
   "optionalDependencies": {
     "gulp-jshint": "~1.6.1"
   },
-  "author": "moznion",
+  "homepage": "https://github.com/moznion/gulp-tsd",
+  "bugs": "https://github.com/moznion/gulp-tsd/issues",
   "repository": {
     "type": "git",
     "url": "git://github.com/moznion/gulp-tsd.git"
