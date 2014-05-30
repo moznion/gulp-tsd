@@ -4,13 +4,15 @@ Gulp plugin to automate TSD and TypeScript definition related tasks
 
 ## GETTING START
 
-<ol start="1">
-
-<li>Install `gulp-tsd`
+<ol>
+<li TYPE="1">Install `gulp-tsd`
+</ol>
 
     npm install --save-dev gulp-tsc
 
-<li>Write `gulpfile.js`
+<ol>
+<li TYPE="2">Write `gulpfile.js`
+</ol>
 
 For example;
 
@@ -21,6 +23,8 @@ gulp.task('tsd', function () {
     return gulp.src('./gulp_tsd.json').pipe(tsd());
 });
 ```
+
+<ol START="3">
 
 <li>Write gulp\_tsd.json (see blow)
 
