@@ -84,3 +84,9 @@ A lot of codes are from [grunt-tsd](https://github.com/DefinitelyTyped/grunt-tsd
 
 MIT
 
+[npm-url]: https://npmjs.org/package/gulp-tsd
+[npm-image]: https://badge.fury.io/js/gulp-tsd.svg
+[travis-url]: https://travis-ci.org/moznion/gulp-tsd
+[travis-image]: https://travis-ci.org/moznion/gulp-tsd.svg?branch=master
+[daviddm-url]: https://david-dm.org/moznion/gulp-tsd
+[daviddm-image]: https://david-dm.org/moznion/gulp-tsd.svg
