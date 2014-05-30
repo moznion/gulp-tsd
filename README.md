@@ -6,7 +6,7 @@ Gulp plugin to automate TSD and TypeScript definition related tasks
 
 ### 1. Install `gulp-tsd`
 
-    npm install --save-dev gulp-tsc
+    npm install --save-dev gulp-tsd
 
 ### 2. Write `gulpfile.js`
 
@@ -77,7 +77,7 @@ A lot of codes are from [grunt-tsd](https://github.com/DefinitelyTyped/grunt-tsd
 
 ## SEE ALSO
 
-- [tsd](https://github.com/DefinitelyTyped/tsd).
+- [tsd](https://github.com/DefinitelyTyped/tsd)
 - [grunt-tsd](https://github.com/DefinitelyTyped/grunt-tsd)
 
 ## LICENSE
