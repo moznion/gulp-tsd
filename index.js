@@ -43,7 +43,7 @@ module.exports = function () {
             return callback();
         }
 
-        settings.push(require(path.resolve(file.relative)));
+        settings.push(require(path.resolve(file.path)));
 
         callback();
     }
