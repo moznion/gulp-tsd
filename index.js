@@ -3,10 +3,13 @@ var through = require('through2');
 var gutil   = require('gulp-util');
 var path    = require('path');
 
-module.exports = function () {
+module.exports = function (options, callback) {
     'use strict';
 
     var settings = [];
+    if (options) {
+        settings.push(options);
+    }
 
     var logger = {
         'log': function () {
@@ -64,6 +67,10 @@ module.exports = function () {
 
             return promised(self, tsdCommand(setting), callback);
         });
+    }
+
+    if (callback) {
+        flush(callback);
     }
 
     return through.obj(transform, flush);

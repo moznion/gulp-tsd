@@ -17,12 +17,25 @@ gulp.task('default', function () {
     runSequence(
         'clean',
         'reinstall',
+        'reinstall-no-src',
         'reinstall-test'
     );
 });
 
 gulp.task('reinstall', function () {
-    return gulp.src('gulp_tsd*.json').pipe(tsd());
+    return gulp.src('gulp_tsd*.json').pipe(tsd({
+        command: 'reinstall',
+        latest: false,
+        config: './tsd_from_options.json',
+    }));
+});
+
+gulp.task('reinstall-no-src', function (callback) {
+    tsd({
+        command: 'reinstall',
+        latest: false,
+        config: './tsd_from_options_without_src.json',
+    }, callback);
 });
 
 gulp.task('reinstall-test', function () {
@@ -42,6 +55,18 @@ gulp.task('reinstall-test', function () {
         ["./typings/jquery/jquery.d.ts", "./typings_latest/jquery/jquery.d.ts"],
         ["./typings/goJS/goJS.d.ts", "./typings_latest/goJS/goJS.d.ts"]
     ])
+
+    expectInstalledFilesExist('options specified files are installed successfully', [
+        "./typings_from_options/tsd.d.ts",
+        "./typings_from_options/jquery/jquery.d.ts",
+        "./typings_from_options/goJS/goJS.d.ts"
+    ]);
+
+    expectInstalledFilesExist('options specified files are installed successfully without src', [
+        "./typings_from_options_without_src/tsd.d.ts",
+        "./typings_from_options_without_src/jquery/jquery.d.ts",
+        "./typings_from_options_without_src/goJS/goJS.d.ts"
+    ]);
 });
 
 function expectDifferencesBetweenBothFiles(description, diffTargets) {
