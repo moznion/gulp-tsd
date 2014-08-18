@@ -20,6 +20,19 @@ gulp.task('tsd', function () {
 });
 ```
 
+or if you want to specify your options inline in your gulpfile
+
+```javascript
+var tsd = require('gulp-tsd');
+
+gulp.task('tsd', function (callback) {
+    tsd({
+        command: 'reinstall',
+        config: './tsd.json'
+    }, callback);
+});
+```
+
 ### 3. Write `gulp_tsd.json` (see blow)
 
 ### 4. Write `tsd.json` (see below)
