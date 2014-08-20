@@ -13,8 +13,8 @@
   ],
   "dependencies": {
     "tsd": "~0.5.7",
-    "through2": "~0.4.2",
-    "gulp-util": "~2.2.14"
+    "through2": "~0.6.1",
+    "gulp-util": "~3.0.0"
   },
   "devDependencies": {
     "gulp": "~3.6.2",
