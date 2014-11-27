@@ -12,7 +12,7 @@
     "tsd"
   ],
   "dependencies": {
-    "tsd": "git://github.com/Nemo157/tsd#write-bundle-without-tsd-json-0.5.7",
+    "tsd": "~0.6.0-beta.4",
     "through2": "~0.4.2",
     "gulp-util": "~2.2.14"
   },
