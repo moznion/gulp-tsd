@@ -1,6 +1,11 @@
 Revision history for gulp-tsd
 
-0.0.2 2014-08-20T16:01:44
+0.0.4 2014-12-02T14:09:01Z
+
+    - Update dependent tsd version (@Nemo157)
+      See: https://github.com/moznion/gulp-tsd/pull/5
+
+0.0.3 2014-08-20T16:01:44
 
     - Fixed path resolving to allow place the config into nested folders instead of root (@ebaranov)
     - Allow passing in options instead of file (@Nemo157)

@@ -1,7 +1,7 @@
 {
   "name": "gulp-tsd",
   "author": "moznion <moznion@gmail.com>",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Gulp plugin to automate TSD and TypeScript definition related tasks",
   "main": "index.js",
   "scripts": {
