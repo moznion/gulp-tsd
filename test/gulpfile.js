@@ -40,7 +40,6 @@ gulp.task('reinstall-no-src', function (callback) {
 
 gulp.task('reinstall-test', function () {
     expectInstalledFilesExist('revision specified files are install in successfully', [
-        "./typings/tsd.d.ts",
         "./typings/jquery/jquery.d.ts",
         "./typings/goJS/goJS.d.ts"
     ]);
@@ -57,13 +56,11 @@ gulp.task('reinstall-test', function () {
     ])
 
     expectInstalledFilesExist('options specified files are installed successfully', [
-        "./typings_from_options/tsd.d.ts",
         "./typings_from_options/jquery/jquery.d.ts",
         "./typings_from_options/goJS/goJS.d.ts"
     ]);
 
     expectInstalledFilesExist('options specified files are installed successfully without src', [
-        "./typings_from_options_without_src/tsd.d.ts",
         "./typings_from_options_without_src/jquery/jquery.d.ts",
         "./typings_from_options_without_src/goJS/goJS.d.ts"
     ]);
