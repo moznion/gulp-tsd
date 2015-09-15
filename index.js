@@ -6,10 +6,7 @@ var path    = require('path');
 module.exports = function (options, callback) {
     'use strict';
 
-    var settings = [];
-    if (options) {
-        settings.push(options);
-    }
+    var settings = options || { command: 'reinstall', latest: false }
 
     var logger = {
         'log': function () {
@@ -46,27 +43,24 @@ module.exports = function (options, callback) {
             return callback();
         }
 
-        settings.push(require(path.resolve(file.path)));
-
+        settings.config = file.path;
         callback();
     }
 
     function flush(callback) {
         /*jshint validthis:true */
         var self = this;
-        settings.forEach(function (setting) {
-            var command = setting.command;
-            var tsdCommand = tsd.getRunner(logger).commands[command];
-            if (typeof tsdCommand === 'undefined') {
-                self.emit(
-                    'error',
-                    new gutil.PluginError('gulp-tsd', '"' + command + '"' + ' command is not supported')
-                );
-                return callback();
-            }
+        var command = settings.command;
+		var tsdCommand = tsd.getRunner(logger).commands[command];
+		if (typeof tsdCommand === 'undefined') {
+			self.emit(
+				'error',
+				new gutil.PluginError('gulp-tsd', '"' + command + '"' + ' command is not supported')
+			);
+			return callback();
+		}
 
-            return promised(self, tsdCommand(setting), callback);
-        });
+		return promised(self, tsdCommand(settings), callback);
     }
 
     if (callback) {
@@ -75,4 +69,3 @@ module.exports = function (options, callback) {
 
     return through.obj(transform, flush);
 };
-
