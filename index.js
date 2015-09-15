@@ -50,6 +50,9 @@ module.exports = function (options, callback) {
     function flush(callback) {
         /*jshint validthis:true */
         var self = this;
+        if (!settings.config) {
+		return callback();
+	}
         var command = settings.command;
 		var tsdCommand = tsd.getRunner(logger).commands[command];
 		if (typeof tsdCommand === 'undefined') {
