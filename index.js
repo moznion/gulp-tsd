@@ -16,18 +16,13 @@ module.exports = function (options, callback) {
         }
     };
 
-    var finishedWorkers = 0;
     var promised = function (context, promise, callback) {
         promise.done(function () {
-            if (settings.length === ++finishedWorkers) {
-                logger.log('finish');
-                return callback();
-            }
+           	logger.log('finish');
+		return callback();
         }, function (err) {
-            if (settings.length === ++finishedWorkers) {
-                context.emit('error', new gutil.PluginError('gulp-tsd', 'Failed command execution: ' + err.stack));
-                return callback();
-            }
+           	context.emit('error', new gutil.PluginError('gulp-tsd', 'Failed command execution: ' + err.stack));
+		return callback();
         });
     };
 
