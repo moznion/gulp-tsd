@@ -13,6 +13,9 @@ module.exports = function (options, callback) {
 
     var logger = {
         'log': function () {
+            if (process.env.NODE_ENV === 'test') {
+                return;
+            }
             var args = Array.prototype.slice.call(arguments);
             args.unshift('[' + gutil.colors.cyan('gulp-tsd') + ']');
             gutil.log.apply(undefined, args);
