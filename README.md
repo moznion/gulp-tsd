@@ -84,6 +84,12 @@ e.g.
 
 Please refer to the [tsd.json](https://github.com/DefinitelyTyped/tsd#tsdjson) to get more information.
 
+## OPTIONS
+
+In addition to options that should be passed directly to TSD, the following options may be passed:
+
+- quiet: Suppress command-line output
+
 ## NOTES
 
 A lot of codes are from [grunt-tsd](https://github.com/DefinitelyTyped/grunt-tsd). Thanks.
