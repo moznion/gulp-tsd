@@ -84,6 +84,14 @@ e.g.
 
 Please refer to the [tsd.json](https://github.com/DefinitelyTyped/tsd#tsdjson) to get more information.
 
+## DEBUGGING
+
+This library uses the popular [debug](https://github.com/visionmedia/debug) module for debugging.  To enable logging, set the `DEBUG` environment variable when running gulp tasks like so:
+
+```
+DEBUG=gulp-tsd gulp tsd
+```
+
 ## NOTES
 
 A lot of codes are from [grunt-tsd](https://github.com/DefinitelyTyped/grunt-tsd). Thanks.

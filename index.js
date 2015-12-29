@@ -2,6 +2,7 @@ var tsd     = require('./lib/tsd');
 var through = require('through2');
 var gutil   = require('gulp-util');
 var path    = require('path');
+var debug   = require('debug')('gulp-tsd');
 
 module.exports = function (options, callback) {
     'use strict';
@@ -13,9 +14,11 @@ module.exports = function (options, callback) {
 
     var logger = {
         'log': function () {
-            var args = Array.prototype.slice.call(arguments);
-            args.unshift('[' + gutil.colors.cyan('gulp-tsd') + ']');
-            gutil.log.apply(undefined, args);
+            var args = Array.prototype.slice.call(arguments),
+                printfString = Array.apply(null, Array(args.length)).map(function(){return '%o'}).join(' ');
+
+            args.unshift(printfString);
+            debug.apply(null, args);
         }
     };
 
