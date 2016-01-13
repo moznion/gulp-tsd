@@ -15,7 +15,7 @@ module.exports = function (options, callback) {
     var logger = {
         'log': function () {
             var args = Array.prototype.slice.call(arguments),
-                printfString = Array.apply(null, Array(args.length)).map(function(){return '%o'}).join(' ');
+                printfString = Array.apply(null, Array(args.length)).map(function(){return '%o';}).join(' ');
 
             args.unshift(printfString);
             debug.apply(null, args);
