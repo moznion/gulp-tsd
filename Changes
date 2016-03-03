@@ -1,5 +1,10 @@
 Revision history for gulp-tsd
 
+0.1.1 2016-03-03T12:55:02X
+
+    - Add "rebundle" command which calls API.updateBundle similarly to how
+CLI.rebundle works.
+
 0.1.0 2016-01-13T13:58:55Z
 
     - Allow configurable debugging by using `debug` module (@goldcaddy77)
