@@ -18,7 +18,8 @@ gulp.task('default', function () {
         'clean',
         'reinstall',
         'reinstall-no-src',
-        'reinstall-test'
+        'reinstall-test',
+        'rebundle-test'
     );
 });
 
@@ -64,6 +65,13 @@ gulp.task('reinstall-test', function () {
         "./typings_from_options_without_src/jquery/jquery.d.ts",
         "./typings_from_options_without_src/goJS/goJS.d.ts"
     ]);
+});
+
+gulp.task('rebundle-test', function (callback) {
+    tsd({
+        command: 'rebundle',
+        config: './tsd.json',
+    }, callback);
 });
 
 function expectDifferencesBetweenBothFiles(description, diffTargets) {
